@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>مُنجز - مستنداتك في جيبك</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="theme-color" content="#1E88E5">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>📁 مُنجز</h1>
+            <p>مستنداتك في جيبك، ومواعيدك قدام عينيك</p>
+        </header>
+
+        <main>
+            <!-- تبويب الخزنة -->
+            <div id="vault-tab" class="tab-content active">
+                <button id="addDocumentBtn" class="fab">+ إضافة مستند</button>
+                <div id="documentsList" class="documents-grid"></div>
+            </div>
+
+            <!-- تبويب التذكيرات -->
+            <div id="reminders-tab" class="tab-content">
+                <button id="addReminderBtn" class="btn-secondary">+ إضافة تذكير</button>
+                <div id="remindersList" class="reminders-list"></div>
+            </div>
+
+            <!-- تبويب المُرشد -->
+            <div id="guide-tab" class="tab-content">
+                <input type="text" id="searchGuide" placeholder="ابحث عن إجراء...">
+                <div id="guideContent"></div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <button data-tab="vault-tab" class="nav-btn active">📂 الخزنة</button>
+            <button data-tab="reminders-tab" class="nav-btn">🔔 التذكيرات</button>
+            <button data-tab="guide-tab" class="nav-btn">📚 المُرشد</button>
+        </nav>
+    </div>
+
+    <!-- إدخال كلمة المرور للتشفير -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <h3>كلمة المرور للتشفير</h3>
+            <input type="password" id="masterPassword" placeholder="أدخل كلمة المرور القوية">
+            <button id="unlockBtn">فتح الخزنة</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
